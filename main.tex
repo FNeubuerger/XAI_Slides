@@ -467,6 +467,58 @@ Die Europäische Union hat den Artificial Intelligence Act verabschiedet,\footno
   \end{columns}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Methoden zur Interpretation neuronaler Netzwerke}
+  \begin{itemize}
+      \item \textbf{Feature Visualization:}
+      \begin{itemize}
+          \item Visualisierung der Merkmale, auf die Neuronen reagieren.
+          \item Ermöglicht Einblicke in die von Neuronen erkannten Muster.
+      \end{itemize}
+      \item \textbf{Saliency Maps:}
+      \begin{itemize}
+          \item Identifikation von Eingabebereichen, die den größten Einfluss auf die Ausgabe haben.
+          \item Darstellung der Bedeutung einzelner Pixel oder Merkmale.
+      \end{itemize}
+      \item \textbf{Layer-wise Relevance Propagation (LRP):}
+      \begin{itemize}
+          \item Rückverfolgung der Entscheidung des Netzwerks auf die Eingabedaten.
+          \item Zuweisung von Relevanzwerten zu einzelnen Eingabeelementen.
+      \end{itemize}
+  \end{itemize}
+  \begin{figure}
+      \centering
+      \includegraphics[width=0.7\textwidth]{path/to/saliency_map_example.png}
+      \caption{Beispiel einer Saliency Map}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Werkzeuge und Bibliotheken für erklärbare KI}
+  \begin{itemize}
+      \item \textbf{Captum:}
+      \begin{itemize}
+          \item PyTorch-Bibliothek für Interpretierbarkeitsmethoden.
+          \item Unterstützt Techniken wie integrierte Gradienten und DeepLIFT.
+      \end{itemize}
+      \item \textbf{ELI5:}
+      \begin{itemize}
+          \item Bibliothek zur Erklärung von ML-Modellen und Vorhersagen.
+          \item Unterstützt verschiedene Modelle wie Sklearn, XGBoost und Keras.
+      \end{itemize}
+      \item \textbf{SHAP-Bibliothek:}
+      \begin{itemize}
+          \item Implementierung der SHAP-Werte für verschiedene Modelltypen.
+          \item Ermöglicht detaillierte Analysen der Merkmalsbeiträge.
+      \end{itemize}
+  \end{itemize}
+  \begin{figure}
+      \centering
+      \includegraphics[width=0.7\textwidth]{path/to/captum_example.png}
+      \caption{Beispiel für die Verwendung von Captum zur Modellinterpretation}
+  \end{figure}
+\end{frame}
+
 % ==================== XAI SECTION ====================
 \section{Explainable AI weitere Quellen}
 
