@@ -36,7 +36,7 @@
 \author[F.~Neubürger]{ \textbf{Felix Neubürger}}
 \institute[I \& W]{Fachhochschule Südwestfalen, Ingenieurs- \& Wirtschaftswissenschaften}
 \date{2025}
-\titlegraphic{\includegraphics[width=0.2\textwidth]{images/MLP2.png}}
+\titlegraphic{\includegraphics[width=0.6\textwidth]{images/shap_values.png}}
 
 
 \begin{document}
@@ -46,8 +46,11 @@
   \begin{columns}
     \begin{column}{1\textwidth}
       \begin{itemize}
-        \item \url{https://www.menti.com/} \newline
-        \item Code: 3972 7236
+        \item Was verstehen Sie unter Explainable AI? \newline
+        \item Haben Sie bereits Erfahrungen mit maschinellem Lernen oder KI? \newline
+        \item Welche Erwartungen haben Sie an diese Vorlesung? \newline
+        \item Welche Anwendungsbereiche von KI interessieren Sie besonders? \newline
+        \item Gibt es spezifische Fragen, die Sie in dieser Vorlesung beantwortet haben möchten?
       \end{itemize}
     \end{column}
     \begin{column}{0\textwidth}
@@ -108,14 +111,14 @@
     \begin{column}{0.69\textwidth}
       \begin{itemize}
         \item Theroretischer Teil mit Folien \newline
-        \item Selbststudium mt einem Lehrbuch\footnote{\url{https:// christophm.github.io/interpretable-ml-book/}} \cite{molnar2025} \newline
+        \item Selbststudium mt einem Lehrbuch\footnote{\url{https:// christophm.github.io/interpretable-ml-book/}} \newline
         \item Praktischer Teil in Gruppen an einem Projekt  \newline
         \item Gruppengröße 2 oder 3 Personen  \newline
         %\item Welche Vorteile kann Predictive Maintenance haben? \newline
         \item Einzelarbeit möglich wenn eigenes Thema vorhanden \newline
         \item Abgabe der Ausarbeitung einen Tag vor der Veranstaltung in der Blockwoche \newline
         \item Vorstellung der Projektergebnisse in der Blockwoche \newline
-        \item Gewichtung der Bewertung Projektausarbeitung (70\%) und Vortrag (30\%)
+        \item Gewichtung der Bewertung Projektausarbeitung (50\%) und Vortrag (50\%)
         %
       \end{itemize}
     \end{column}
@@ -258,9 +261,214 @@ Die Europäische Union hat den Artificial Intelligence Act verabschiedet,\footno
 
 \end{frame}
 
+\begin{frame}{Methoden der Explainable AI (XAI)}
+  \begin{columns}
+    \begin{column}{1\textwidth}
+      \textbf{Global interpretierbare Modelle:}
+      \begin{itemize}
+        \item Lineare Regression
+        \item Entscheidungsbäume
+        \item Regelbasierte Modelle
+      \end{itemize}
+      \vspace{0.5cm}
+      \textbf{Post-hoc Erklärungen:}
+      \begin{itemize}
+        \item Lokale Methoden (z.B. LIME, SHAP)
+        \item Visualisierungen (z.B. Feature Importance, PDPs)
+        \item Gegenbeispiele (Counterfactual Explanations)
+      \end{itemize}
+      \vspace{0.5cm}
+      \textbf{Surrogatmodelle:}
+      \begin{itemize}
+        \item Vereinfachte Modelle, die komplexe Modelle approximieren
+      \end{itemize}
+    \end{column}
+    %\begin{column}{0.0\textwidth}
+    %  \includegraphics[width=\textwidth]{images/xai_methods.png}
+    %\end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Globale Methoden}
+  \begin{columns}
+    \begin{column}{1\textwidth}
+      \textbf{Feature Importance:}
+      \begin{itemize}
+        \item Bewertung der Bedeutung einzelner Merkmale
+      \end{itemize}
+      \vspace{0.3cm}
+      \textbf{Permutation Feature Importance:}
+      \begin{itemize}
+        \item Bewertung durch Permutation der Merkmale
+      \end{itemize}
+      \vspace{0.3cm}
+      \textbf{Partial Dependence Plots (PDP):}
+      \begin{itemize}
+        \item Einfluss eines Merkmals auf die Vorhersage
+      \end{itemize}
+      \vspace{0.3cm}
+      \textbf{Global Surrogates:}
+      \begin{itemize}
+        \item Erklärbares Modell, das ein komplexes Modell nachahmt
+      \end{itemize}
+    \end{column}
+    %\begin{column}{0.4\textwidth}
+    %  \includegraphics[width=\textwidth]{images/global_methods.png}
+    %\end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Lokale Methoden}
+  \begin{columns}
+    \begin{column}{1\textwidth}
+      \textbf{LIME:}
+      \begin{itemize}
+        \item Lokale lineare Approximationen des Modells
+      \end{itemize}
+      \vspace{0.3cm}
+      \textbf{SHAP:}
+      \begin{itemize}
+        \item Spieltheorie-basierte Quantifizierung von Merkmalbeiträgen
+      \end{itemize}
+      \vspace{0.3cm}
+      \textbf{Counterfactual Explanations:}
+      \begin{itemize}
+        \item Minimale Änderungen für eine andere Vorhersage
+      \end{itemize}
+    \end{column}
+    %\begin{column}{0.4\textwidth}
+    %  \includegraphics[width=\textwidth]{images/local_methods.png}
+    %\end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Visualisierungen}
+  \begin{columns}
+    \begin{column}{1\textwidth}
+      \textbf{Feature Importance:}
+      \begin{itemize}
+        \item Balkendiagramme zur Darstellung der Merkmalsbedeutung
+      \end{itemize}
+      \vspace{0.3cm}
+      \textbf{Partial Dependence Plots (PDP):}
+      \begin{itemize}
+        \item Einfluss eines Merkmals auf die Vorhersage
+      \end{itemize}
+      \vspace{0.3cm}
+      \textbf{Individual Conditional Expectation (ICE):}
+      \begin{itemize}
+        \item Individuelle Effekte von Merkmalen für einzelne Datenpunkte
+      \end{itemize}
+    \end{column}
+    %\begin{column}{0.4\textwidth}
+    %  \includegraphics[width=\textwidth]{images/visualizations.png}
+    %\end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineare Modelle}
+  \begin{columns}
+    \begin{column}{1\textwidth}
+      \textbf{Lineare Regression:}
+      \begin{itemize}
+        \item Modell: $Y = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \epsilon$
+        \item $\beta_0$: Achsenabschnitt
+        \item $\beta_i$: Regressionskoeffizienten
+        \item $\epsilon$: Fehlerterm
+      \end{itemize}
+      \vspace{0.5cm}
+      \textbf{Generalisierte Additive Modelle (GAMs):}
+      \begin{itemize}
+        \item Modell: $Y = \beta_0 + f_1(X_1) + \dots + f_p(X_p) + \epsilon$
+        \item $f_i$: Glatte Funktionen für nichtlineare Beziehungen
+      \end{itemize}
+    \end{column}
+    %\begin{column}{0.4\textwidth}
+    %  \includegraphics[width=\textwidth]{images/linear_models.png}
+    %\end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Entscheidungsbäume}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+        \item Rekursive Partitionierung des Merkmalsraums
+        \item Jeder Knoten: Entscheidung basierend auf Merkmal und Schwellenwert
+        \item Ziel: Maximierung der Homogenität in den Blättern
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=\textwidth]{images/decision_trees.png}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Modellagnostische Methoden}
+  \begin{columns}
+    \begin{column}{1\textwidth}
+      \textbf{Permutation Feature Importance:}
+      \begin{itemize}
+        \item Permutation eines Merkmals
+        \item Messung des Anstiegs des Vorhersagefehlers
+        \item Signifikanter Anstieg = hohe Bedeutung
+      \end{itemize}
+      \vspace{0.5cm}
+      \textbf{Partielle Abhängigkeitsdiagramme (PDPs):}
+      \begin{itemize}
+        \item Zeigen durchschnittliche Wirkung eines Merkmals
+        \item Berechnung: $\hat{f}_{X_S}(x_S) = \mathbb{E}_{X_C}[\hat{f}(x_S, X_C)]$
+      \end{itemize}
+      \vspace{0.5cm}
+      \textbf{Akkumulierte lokale Effekte (ALE):}
+      \begin{itemize}
+        \item Messen durchschnittliche Änderung der Vorhersage
+        \item Berechnung: $ALE_j(x) = \int_{x_{min}}^x \mathbb{E} \left[ \frac{\partial \hat{f}(x)}{\partial x_j} \mid x_j = z \right] dz$
+      \end{itemize}
+    \end{column}
+    %\begin{column}{0.4\textwidth}
+    %  \includegraphics[width=\textwidth]{images/model_agnostic.png}
+    %\end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{SHAP-Werte}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+        \item Basieren auf kooperativer Spieltheorie
+        \item Beitrag jedes Merkmals zur Vorhersage:
+        \item $\phi_i = \sum_{S \subseteq N \setminus \{i\}} \frac{|S|! (|N| - |S| - 1)!}{|N|!} \left[ f(S \cup \{i\}) - f(S) \right]$
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=\textwidth]{images/shap_values.png}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lokale Surrogatmodelle: LIME}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+        \item Einfaches Modell (z.B. lineare Regression) lokal anpassen
+        \item Künstliche Datenpunkte in der Nähe generieren
+        \item Gewichtung basierend auf Ähnlichkeit zur Instanz
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=\textwidth]{images/lime.png}
+    \end{column}
+  \end{columns}
+\end{frame}
 
 % ==================== XAI SECTION ====================
-\section{Explainable AI}
+\section{Explainable AI weitere Quellen}
 
 \begin{frame}{XAI Standardwerke}
   \begin{itemize}
