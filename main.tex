@@ -1,0 +1,266 @@
+% This example is meant to be compiled with lualatex or xelatex
+% The theme itself also supports pdflatex
+\PassOptionsToPackage{unicode}{hyperref}
+\documentclass[aspectratio=1610, xcolor=dvipsnames, 9pt]{beamer}
+
+% Load packages you need here
+\usepackage{polyglossia}
+\setmainlanguage{german}
+
+\usepackage{csquotes}
+\usepackage{smartdiagram}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+% load the theme after all packages
+
+\usetheme[
+  showtotalframes, % show total number of frames in the footline
+]{fhswf}
+
+% Put settings here, like
+\unimathsetup{
+  math-style=ISO,
+  bold-style=ISO,
+  nabla=upright,
+  partial=upright,
+  mathrm=sym,
+}
+
+\title{Explainable Artificial Intelligence}
+\author[F.~Neubürger]{ \textbf{Felix Neubürger}}
+\institute[I \& W]{Fachhochschule Südwestfalen, Ingenieurs- \& Wirtschaftswissenschaften}
+\date{2025}
+\titlegraphic{\includegraphics[width=0.2\textwidth]{images/MLP2.png}}
+
+
+\begin{document}
+
+\maketitle
+\begin{frame}{Abfrage Erwartungen und Vorwissen}
+  \begin{columns}
+    \begin{column}{1\textwidth}
+      \begin{itemize}
+        \item \url{https://www.menti.com/} \newline
+        \item Code: 3972 7236
+      \end{itemize}
+    \end{column}
+    \begin{column}{0\textwidth}
+% \begin{figure}
+% \centering
+%             \includegraphics[width=0.9\textwidth]{images/intro/intro.pdf}
+% \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Inhalte der Vorlesung}
+  \begin{columns}
+    \begin{column}{1\textwidth}
+      \begin{itemize}
+        \item Begriffsklärungen\newline
+        \item Erkenntnistheoretischer Exkurs \newline
+        \item Methoden der Explainable AI  \newline
+        \item Quantitative Methoden \newline 
+        \item Anwendung der gelernten Methoden in einem Beispiel
+      \end{itemize}
+    \end{column}
+    \begin{column}{0\textwidth}
+% \begin{figure}
+% \centering
+%             \includegraphics[width=0.9\textwidth]{images/intro/intro.pdf}
+% \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Ziele der Vorlesung - Welche Fragen sollen beantwortet werden?}
+  \begin{columns}
+    \begin{column}{0.49\textwidth}
+      \begin{itemize}
+        \item Wofür Explainable AI? \newline
+        \item Was bedeutet Explainable AI? \newline
+        \item Interpretable AI?  \newline
+        %\item Welche Vorteile kann Predictive Maintenance haben? \newline
+        \item Trustworthy AI? \newline
+        \item Wie funktioniert das mathematisch? \newline
+        \item Wie schaffe ich Transparenz für Stakeholder?
+        %\item Wie gehe ich an ein Predictive Maintenance Projekt heran?
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+ \begin{figure}
+ \centering
+             \includegraphics[width=0.9\textwidth]{images/ai_box_experiment.png}
+             [\url{https://xkcd.com/1450/}]
+ \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Format der Vorlesung - Wie sollen diese Fragen beantwortet werden?}
+  \begin{columns}
+    \begin{column}{0.69\textwidth}
+      \begin{itemize}
+        \item Theroretischer Teil mit Folien \newline
+        \item Selbststudium mt einem Lehrbuch\footnote{\url{https:// christophm.github.io/interpretable-ml-book/}} \cite{molnar2025} \newline
+        \item Praktischer Teil in Gruppen an einem Projekt  \newline
+        \item Gruppengröße 2 oder 3 Personen  \newline
+        %\item Welche Vorteile kann Predictive Maintenance haben? \newline
+        \item Einzelarbeit möglich wenn eigenes Thema vorhanden \newline
+        \item Abgabe der Ausarbeitung einen Tag vor der Veranstaltung in der Blockwoche \newline
+        \item Vorstellung der Projektergebnisse in der Blockwoche \newline
+        \item Gewichtung der Bewertung Projektausarbeitung (70\%) und Vortrag (30\%)
+        %
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+ \begin{figure}
+ \centering
+             \includegraphics[width=0.7\textwidth]{images/tasks.png} \newline
+             [\url{https://xkcd.com/1425/}]
+ \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Künstliche Intelligenz (KI)}
+    \begin{itemize}
+        \item Teilgebiet der Informatik \newline
+        \item Automatisierung intelligenten Verhaltens \newline
+        \item Maschinelles Lernen als Unterbereich \newline
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Maschinelles Lernen (ML)}
+    \begin{itemize}
+        \item Unterbereich der KI \newline
+        \item Algorithmen lernen aus Daten \newline
+        \item Treffen von Vorhersagen oder Entscheidungen \newline
+        \item Deep Learning basiert auf künstlichen neuronalen Netzen
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Explainable Artificial Intelligence (XAI)}
+    \begin{itemize}
+        \item Ansätze zur Verständlichkeit von KI-Entscheidungen \newline
+        \item Wichtig für Vertrauen und Transparenz \newline
+        \item Beispiel: Erklärungen in der medizinischen Diagnostik
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Definitionen und Unterschiede}
+    \begin{block}{Interpretierbarkeit}
+        \begin{itemize}
+            \item Fähigkeit, die internen Mechanismen eines Modells zu verstehen. 
+            \item Ermöglicht direkte Einsicht in die Funktionsweise des Modells.
+            \item Beispiel: Lineare Regression, Entscheidungsbäume.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Erklärbarkeit}
+        \begin{itemize}
+            \item Fähigkeit, die Entscheidungen oder Vorhersagen eines Modells verständlich zu machen.
+            \item Oft durch zusätzliche Methoden bei komplexen Modellen erreicht.
+            \item Beispiel: Neuronale Netze mit Post-hoc-Erklärungen.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Erkenntnistheoretische Aspekte}
+    \begin{itemize}
+        \item \textbf{Wissenserwerb:} Wie tragen Interpretierbarkeit und Erklärbarkeit zum Verständnis von KI-Entscheidungen bei? \newline
+        \item \textbf{Vertrauen:} Inwiefern beeinflusst die Nachvollziehbarkeit von Modellen das Vertrauen der Nutzer? \newline
+        \item \textbf{Transparenz vs. Komplexität:} Balance zwischen detaillierter Einsicht und praktischer Anwendbarkeit. \newline
+        \item \textbf{Ethische Verantwortung:} Bedeutung von Erklärbarkeit für ethisch vertretbare KI-Systeme. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Bedeutung der Interpretierbarkeit im Maschinellen Lernen}
+    \begin{itemize}
+        \item \textbf{Definition:} \newline
+        Interpretierbarkeit bezeichnet das Maß, in dem ein Mensch die Ursache einer Entscheidung eines Modells nachvollziehen kann.
+        \newline
+        \item \textbf{Warum ist Interpretierbarkeit wichtig?}
+        \begin{itemize}
+            \item \textbf{Vertrauensbildung:} \newline
+            Nutzer vertrauen eher Modellen, deren Entscheidungswege sie verstehen.
+            \item \textbf{Fehleranalyse:} \newline
+            Verständnis für Modellentscheidungen erleichtert das Erkennen und Beheben von Fehlern.
+            \item \textbf{Einhaltung gesetzlicher Vorgaben:} \newline
+            In sensiblen Bereichen wie Medizin oder Finanzen sind nachvollziehbare Entscheidungen oft gesetzlich vorgeschrieben.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Herausforderungen und Begriffsabgrenzungen}
+    \begin{itemize}
+        \item \textbf{Herausforderungen:}
+        \begin{itemize}
+            \item Fehlende einheitliche Definition von Interpretierbarkeit erschwert Kommunikation und Forschung.
+            \item Kompromiss zwischen Modellkomplexität und Interpretierbarkeit oft notwendig.
+        \end{itemize}
+        \item \textbf{Abgrenzung zu verwandten Begriffen:}
+        \begin{itemize}
+            \item \textbf{Erklärbarkeit (Explainability):} \newline
+            Fähigkeit, interne Mechanismen eines Modells verständlich zu machen.
+            \item \textbf{Transparenz:} \newline
+            Ausmaß, in dem die Funktionsweise eines Modells offenliegt.
+            \item \textbf{Vertrauen:} \newline
+            Maß, in dem Nutzer darauf vertrauen, dass ein Modell korrekte und faire Entscheidungen trifft.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{EU-Regulierung und Erklärbare Künstliche Intelligenz}
+Die Europäische Union hat den Artificial Intelligence Act verabschiedet,\footnote{Regulation (EU) 2024/1689 des Europäischen Parlaments und des Rates vom 13. Juni 2024 über harmonisierte Vorschriften für künstliche Intelligenz. Verfügbar unter: \url{https://eur-lex.europa.eu/eli/reg/2024/1689/oj}} der am 1. August 2024 in Kraft trat.\footnote{Pressemitteilung der Europäischen Kommission: "AI Act tritt in Kraft". Verfügbar unter: \url{https://ec.europa.eu/commission/presscorner/detail/de/ip_24_1234}}
+
+    \textbf{EU AI Act: Überblick}
+    \begin{itemize}
+        \item \textbf{Ziel:} Einführung eines risikobasierten Klassifizierungssystems für KI-Anwendungen.  \newline
+        \item \textbf{Risikokategorien:}
+        \begin{itemize}
+            \item \textbf{Unzulässiges Risiko:} Verbotene KI-Anwendungen.
+            \item \textbf{Hohes Risiko:} Strenge Anforderungen an Transparenz, Sicherheit und Compliance.
+            \item \textbf{Geringes oder minimales Risiko:} Weniger strenge oder keine spezifischen Anforderungen.
+        \end{itemize}
+    \end{itemize}
+
+    \textbf{Erklärbarkeit als zentrale Anforderung} \newline
+    \begin{itemize}
+        \item \textbf{Transparenzpflichten:} Anbieter müssen Informationen bereitstellen, die es ermöglichen, die Funktionsweise von KI-Systemen zu verstehen.
+        \item \textbf{Vertrauenswürdigkeit:} Erklärbare KI fördert das Vertrauen der Nutzer und erleichtert die Akzeptanz von KI-Technologien.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Herausforderungen des EU AI Acts für Unternehmen}
+
+    \begin{itemize}
+        \item \textbf{Komplexität der Regulierung:} \\
+        Der AI Act verfolgt einen risikobasierten Ansatz, bei dem KI-Systeme in verschiedene Risikoklassen eingeteilt werden. Unternehmen müssen ihre KI-Anwendungen entsprechend einstufen und die jeweiligen Anforderungen erfüllen.\footnote{\url{https://www.it-schulungen.com/wir-ueber-uns/wissensblog/welche-anforderungen-stellt-der-eu-ai-act.html}}
+
+        \item \textbf{Standardisierung und technische Umsetzung:} \\
+        Die Entwicklung harmonisierter Standards für Hochrisiko-KI-Systeme ist komplex und zeitaufwendig. Verzögerungen können zu Unsicherheiten bei der Implementierung führen und Innovationen hemmen.\footnote{\url{https://www.connect-professional.de/security/der-ai-act-chancen-nutzen-risiken-managen.332959.html}}
+
+        \item \textbf{Vermeidung von Innovationshemmnissen:} \\
+        Es besteht die Sorge, dass strenge Regulierungen Innovationen im Bereich der Künstlichen Intelligenz behindern könnten. Unternehmen müssen Wege finden, um sowohl den gesetzlichen Anforderungen zu entsprechen als auch ihre Innovationsfähigkeit zu bewahren.\footnote{\url{https://www.dps-bs.de/blog/der-ai-act-weichenstellung-fuer-kuenstliche-intelligenz-in-europa/}}
+
+        \item \textbf{Wettbewerbsfähigkeit im internationalen Kontext:} \\
+        Unternehmen in Regionen mit weniger strengen Vorschriften könnten schneller Innovationen umsetzen und dadurch Wettbewerbsvorteile erlangen. Europäische Firmen stehen vor der Herausforderung, trotz strengerer Regulierungen konkurrenzfähig zu bleiben.\footnote{\url{https://de.linkedin.com/pulse/der-eu-ai-act-chancen-und-herausforderungen-f\%C3\%BCr-andreas-quandt-ljxne}}
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{References}
+ \bibliographystyle{ieeetr}
+ \bibliography{lit.bib}
+\end{frame}
+\end{document}
