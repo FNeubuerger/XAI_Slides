@@ -520,24 +520,87 @@ Die Europäische Union hat den Artificial Intelligence Act verabschiedet,\footno
 \end{frame}
 
 \begin{frame}{Erklärung für Sentiment-Analyse mit LLM}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+        \item \textbf{Ziel:} Generierung und Speicherung einer Erklärung für eine Sentiment-Analyse-Aufgabe.
+        \item \textbf{Vorgehen:}
+        \begin{itemize}
+          \item Verwendung eines vortrainierten Sprachmodells (LLM) aus der Hugging Face Transformers-Bibliothek.
+          \item Durchführung der Sentiment-Analyse auf einem Beispieltext.
+          \item Visualisierung der Erklärung (z.B. Token-Wichtigkeit) als Balkendiagramm.
+        \end{itemize}
+        \item \textbf{Ergebnis:} 
+        \begin{itemize}
+          \item Die Bedeutung einzelner Tokens wird grafisch dargestellt, um die Entscheidungsfindung des Modells zu verdeutlichen.
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/sentiment_explanation.png}
+        \caption{Visualisierung der Token-Wichtigkeit für Sentiment-Analyse}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Interpretation von LLMs (Large Language Models)}
   \begin{itemize}
-    \item \textbf{Ziel:} Generierung und Speicherung einer Erklärung für eine Sentiment-Analyse-Aufgabe.
-    \item \textbf{Vorgehen:}
+    \item \textbf{Herausforderungen:}
     \begin{itemize}
-      \item Verwendung eines vortrainierten Sprachmodells (LLM) aus der Hugging Face Transformers-Bibliothek.
-      \item Durchführung der Sentiment-Analyse auf einem Beispieltext.
-      \item Visualisierung der Erklärung (z.B. Token-Wichtigkeit) als Balkendiagramm.
+      \item Hohe Komplexität und Anzahl der Parameter erschweren die Nachvollziehbarkeit.
+      \item Entscheidungen basieren auf nichtlinearen Beziehungen zwischen Tokens.
     \end{itemize}
-    \item \textbf{Ergebnis:} 
+    \item \textbf{Ansätze zur Interpretation:}
     \begin{itemize}
-      \item Die Bedeutung einzelner Tokens wird grafisch dargestellt, um die Entscheidungsfindung des Modells zu verdeutlichen.
+      \item \textbf{Attention Visualisierung:}
+      \begin{itemize}
+        \item Darstellung der Aufmerksamkeit (Attention Scores) zwischen Tokens.
+        \item Tool: BertViz.
+      \end{itemize}
+      \item \textbf{Feature Attribution:}
+      \begin{itemize}
+        \item Identifikation der wichtigsten Tokens für eine Vorhersage.
+        \item Tools: Captum, SHAP.
+      \end{itemize}
+      \item \textbf{Neuronale Aktivierungen:}
+      \begin{itemize}
+        \item Analyse der Aktivierungsmuster einzelner Neuronen.
+        \item Tool: Neuroscope.
+      \end{itemize}
     \end{itemize}
   \end{itemize}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/sentiment_explanation.png}
-    \caption{Visualisierung der Token-Wichtigkeit für Sentiment-Analyse}
-  \end{figure}
+\end{frame}
+
+\begin{frame}{Bibliotheken zur Interpretation von LLMs}
+  \begin{itemize}
+    \item \textbf{BertViz:}
+    \begin{itemize}
+      \item Visualisierung der Attention-Matrizen in Transformer-Modellen.
+      \item Unterstützt Modelle wie BERT, GPT-2.
+      \item \url{https://github.com/jessevig/bertviz}
+    \end{itemize}
+    \item \textbf{Transformers Interpret:}
+    \begin{itemize}
+      \item Feature-Attribution-Methoden für Hugging Face Modelle.
+      \item Unterstützt LIME, Integrated Gradients.
+      \item \url{https://github.com/cdpierse/transformers-interpret}
+    \end{itemize}
+    \item \textbf{Captum:}
+    \begin{itemize}
+      \item PyTorch-Bibliothek für Interpretierbarkeit.
+      \item Unterstützt Integrated Gradients, Layer Conductance.
+      \item \url{https://captum.ai/}
+    \end{itemize}
+    \item \textbf{SHAP:}
+    \begin{itemize}
+      \item Shapley-Werte für Feature Attribution.
+      \item Unterstützt Transformer-Modelle.
+      \item \url{https://github.com/slundberg/shap}
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 % ==================== XAI SECTION ====================
 \section{Explainable AI weitere Quellen}
